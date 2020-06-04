@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.github.googleassignment.ui.main.MainViewModel" />
+    </data>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/padding_5"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/red_transparent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextMedium"
+                android:text="@string/label_confirmed"
+                android:textColor="@color/red" />
+
+            <TextView
+                style="@style/TextSmall"
+                android:text="@{`+`+viewModel.stateListInfo.deltaConfirmed}"
+                android:textColor="@color/red" />
+
+            <TextView
+                style="@style/TextLarge"
+                android:text="@{Integer.toString(viewModel.stateListInfo.dailyConfirmed)}"
+                android:textColor="@color/red" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/padding_5"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/blue_transparent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+
+                style="@style/TextMedium"
+                android:text="@string/label_active"
+                android:textColor="@color/blue" />
+
+            <TextView
+                style="@style/TextSmall"
+                android:text="@{`+`+(viewModel.stateListInfo.deltaConfirmed - viewModel.stateListInfo.deltaRecovered - viewModel.stateListInfo.deltaDeceased)}"
+                android:textColor="@color/blue" />
+
+            <TextView
+                style="@style/TextLarge"
+                android:text="@{Integer.toString(viewModel.stateListInfo.dailyConfirmed - viewModel.stateListInfo.dailyRecovered - viewModel.stateListInfo.dailyDeceased)}"
+                android:textColor="@color/blue" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/padding_5"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/green_transparent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextMedium"
+                android:text="@string/label_recovered"
+                android:textColor="@color/green" />
+
+            <TextView
+                style="@style/TextSmall"
+                android:text="@{`+`+viewModel.stateListInfo.deltaRecovered}"
+                android:textColor="@color/green" />
+
+            <TextView
+                style="@style/TextLarge"
+                android:text="@{Integer.toString(viewModel.stateListInfo.dailyRecovered)}"
+                android:textColor="@color/green" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/padding_5"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gray_transparent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextMedium"
+                android:text="@string/label_deceased"
+                android:textColor="@color/gray" />
+
+            <TextView
+                style="@style/TextSmall"
+                android:text="@{`+`+viewModel.stateListInfo.deltaDeceased}"
+                android:textColor="@color/gray" />
+
+            <TextView
+                style="@style/TextLarge"
+                android:text="@{Integer.toString(viewModel.stateListInfo.dailyDeceased)}"
+                android:textColor="@color/gray" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
+</layout>

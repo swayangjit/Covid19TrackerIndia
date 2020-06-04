@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">GoogleAssignment</string>
+    <string name="label_toolbar">Covid19 Tracker India</string>
+    <string name="label_confirmed">Confirmed</string>
+    <string name="label_active">Active</string>
+    <string name="label_recovered">Recovered</string>
+    <string name="label_deceased">Deceased</string>
+    <string name="label_state">State/UT</string>
+    <string name="label_district">Distrit</string>
+    <string name="label_cnfrmed">Cnfrmd</string>
+    <string name="label_actv">Actv</string>
+    <string name="label_rcvrd">Rcvrd</string>
+    <string name="label_dcscd">Dcscd</string>
+</resources>

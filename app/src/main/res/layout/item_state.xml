@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="state"
+            type="com.github.googleassignment.data.network.model.State" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/layout_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@{position % 2 == 0 ? @color/gray_transparent : @android:color/white}"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/padding_small"
+        android:paddingBottom="@dimen/padding_small"
+        android:paddingLeft="@dimen/padding_5">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="4"
+            android:fontFamily="@font/roboto"
+            android:paddingLeft="@dimen/padding_3"
+            android:text="@{state.state}"
+            android:textSize="@dimen/text_size_medium"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="2dp"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_5">
+
+            <TextView
+                android:id="@+id/txt_delta_confirmed"
+                style="@style/TextSmallPlain"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="@{`+`+state.deltaConfirmed}"
+                android:textColor="@color/red"
+                android:visibility="@{state.deltaConfirmed !=0 ? View.VISIBLE : View.GONE}" />
+
+            <TextView
+                style="@style/TextSmallPlain"
+                android:layout_below="@id/txt_delta_confirmed"
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold"
+                android:text="@{Integer.toString(state.totalConfirmed)}" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="2dp"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_5">
+
+            <TextView
+                android:id="@+id/txt_delta_active"
+                style="@style/TextSmallPlain"
+                android:layout_centerHorizontal="true"
+                android:text="@{`+`+(state.deltaConfirmed -state.deltaRecovered - state.deltaDeath)}"
+                android:textColor="@color/blue"
+                android:visibility="@{(state.deltaConfirmed -state.deltaRecovered - state.deltaRecovered) !=0 ? View.VISIBLE : View.GONE}" />
+
+            <TextView
+                style="@style/TextSmallPlain"
+                android:layout_below="@id/txt_delta_active"
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold"
+                android:text="@{Integer.toString(state.totalConfirmed - state.totalRecovered - state.totalDeath)}" />
+            />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/padding_2"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_5">
+
+            <TextView
+                android:id="@+id/txt_delta_recovered"
+                style="@style/TextSmallPlain"
+                android:layout_centerHorizontal="true"
+                android:text="@{`+`+ state.deltaRecovered}"
+                android:textColor="@color/green"
+                android:visibility="@{state.deltaRecovered !=0 ? View.VISIBLE : View.GONE}" />
+
+            <TextView
+                style="@style/TextSmallPlain"
+                android:layout_below="@id/txt_delta_recovered"
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold"
+                android:text="@{Integer.toString(state.totalRecovered)}" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="2dp"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_5">
+
+            <TextView
+                android:id="@+id/txt_delta_death"
+                style="@style/TextSmallPlain"
+                android:layout_centerHorizontal="true"
+                android:text="@{`+`+ state.deltaDeath}"
+                android:textColor="@color/gray"
+                android:visibility="@{state.deltaDeath !=0 ? View.VISIBLE : View.GONE}" />
+
+            <TextView
+                style="@style/TextSmallPlain"
+                android:layout_below="@id/txt_delta_death"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/roboto"
+                android:textStyle="bold"
+                android:text="@{Integer.toString(state.totalDeath)}" />
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>
