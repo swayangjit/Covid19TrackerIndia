@@ -3,6 +3,7 @@
 > This repository contains  project which is built for **#30daysofkotlin** with GoogleDeveloper an initiative to improve your understanding of Kotlin and apply it in real projects using Google resources (codelabs, sessions with Googlers) between 7th May - 7th of June.
 
 **Description**
+
 The purpose of the application is to show the overall stats of the coronavirus outbreak in India. The app has 2 activities  The app has 2 activities 
 - MainActivity which shows overall stats of India and the list of the state affected along with all the stats(confirmed, active, recovered and deceased count)
 - DetailActivity which comes when a state is clicked and show the district level stats of the state.
